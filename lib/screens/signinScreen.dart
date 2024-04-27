@@ -6,7 +6,7 @@ import '../utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class signinScreen extends StatelessWidget{
-  //final _auth = FirebaseAuth.instance;
+  final _auth = FirebaseAuth.instance;
   late String email;
   late String password;
   @override
@@ -61,7 +61,7 @@ class signinScreen extends StatelessWidget{
                           SizedBox(height: 10,),
                           TextField(
                             onChanged: (value){
-                              email = value;
+                              password = value;
                             },
                             decoration: kTextFieldDecoration,
                           ),
@@ -69,17 +69,16 @@ class signinScreen extends StatelessWidget{
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {
-                                // try{
-                                //   final newuser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-                                //   if(newuser!=null){
-                                //
-                                //   }
-                                // }
-                                // catch(e){
-                                //   print(e);
-                                // }
-                                Get.off(() => setProfile());
+                              onPressed: () async {
+                                try{
+                                  final newuser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                                  if(newuser!=null){
+                                    Get.to(() => setProfile());
+                                  }
+                                }
+                                catch(e){
+                                  print(e);
+                                }
                               },
                               child: Text("Sign In",style: kText.copyWith(color: yellow),),
                               style: ElevatedButton.styleFrom(

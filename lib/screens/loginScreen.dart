@@ -2,8 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/bottomNavBar.dart';
 import '../utils/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class loginScreen extends StatelessWidget{
+  final _auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -48,18 +52,32 @@ class loginScreen extends StatelessWidget{
                             Text("Log In",style: kHeading.copyWith(color: Colors.white,fontSize: 25),textAlign: TextAlign.start,),
                             SizedBox(height: 10,),
                             TextField(
+                              onChanged: (value) {
+                                email = value;
+                              },
                               decoration: kTextFieldDecoration,
                             ),
                             SizedBox(height: 10,),
                             TextField(
+                              onChanged: (value) {
+                                password = value;
+                              },
                               decoration: kTextFieldDecoration,
                             ),
                             SizedBox(height: 10,),
                             SizedBox(
                               width: double.infinity,
                               child: ElevatedButton(
-                                onPressed: (){
-                                  Get.off(() => BottomNavBar());
+                                onPressed: () async {
+                                  try {
+                                    final checkuser = await _auth.signInWithEmailAndPassword(email: email, password: password);
+                                    if(checkuser!=null){
+                                      Get.off(() => BottomNavBar());
+                                    }
+                                  } catch (e) {
+                                    print(e);
+                                  }
+                                  
                                 },
                                 child: Text("Log in",style: kText.copyWith(color: yellow),),
                                 style: ElevatedButton.styleFrom(
