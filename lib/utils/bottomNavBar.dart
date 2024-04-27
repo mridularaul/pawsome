@@ -37,32 +37,36 @@ class BottomNavBar extends StatelessWidget{
             ),
             bottomNavigationBar: Obx(
                   ()=>BottomNavigationBar(
-
-                fixedColor: yellow,
+                fixedColor: Colors.white,
                 onTap: (index){
                   appBarController.changeIndex(index);
                 },
                 currentIndex: appBarController.selectedIndex.value,
                 items: const [
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/leaderboard.png')),
+                    icon: ImageIcon(AssetImage('assets/images/community.png')),
                     label: 'Community',
+                    backgroundColor: yellow,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/powercard.png')),
+                    icon: ImageIcon(AssetImage('assets/images/home.png')),
                     label: 'Petcare',
+                    backgroundColor: yellow,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/map.png')),
+                    icon: ImageIcon(AssetImage('assets/images/home.png')),
                     label: 'Home',
+                    backgroundColor: yellow,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/info.png')),
+                    icon: ImageIcon(AssetImage('assets/images/home.png')),
                     label: 'Adoption',
+                    backgroundColor: yellow,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/info.png')),
+                    icon: ImageIcon(AssetImage('assets/images/home.png')),
                     label: 'Profile',
+                    backgroundColor: yellow,
                   ),
 
                 ],

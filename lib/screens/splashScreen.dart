@@ -24,7 +24,7 @@ class splashScreen extends StatelessWidget{
                 width: double.infinity,
                 child: ElevatedButton(
                     onPressed: (){
-                      Get.to(loginScreen());
+                      Get.to(() => loginScreen());
                     },
                     child: Text("Log in",style: kText.copyWith(color: yellow),),
                   style: ElevatedButton.styleFrom(
