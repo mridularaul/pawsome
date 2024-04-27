@@ -22,3 +22,22 @@ const kTextFieldDecoration = InputDecoration(
     borderRadius: BorderRadius.all(Radius.circular(2.0)),
   ),
 );
+
+//For community chat
+const kSendButtonTextStyle = TextStyle(
+  color: Color(0xffFFCD00),
+  fontWeight: FontWeight.bold,
+  fontSize: 18.0,
+);
+
+const kMessageTextFieldDecoration = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  hintText: 'Type your message here...',
+  border: InputBorder.none,
+);
+
+const kMessageContainerDecoration = BoxDecoration(
+  border: Border(
+    top: BorderSide(color: Color(0xffFFCD00), width: 2.0),
+  ),
+);
