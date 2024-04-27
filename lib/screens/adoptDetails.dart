@@ -5,11 +5,18 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pawfect/utils/constants.dart';
 
-class adoptDetails extends StatelessWidget{
+class adoptDetails extends StatefulWidget{
   DocumentSnapshot petData;
 
   adoptDetails({required this.petData ,super.key});
 
+  @override
+  State<adoptDetails> createState() => _adoptDetailsState();
+}
+
+class _adoptDetailsState extends State<adoptDetails> {
+   String button = "Send Application";
+    Color color = Colors.red;
 
   @override
   Widget build(BuildContext context) {
@@ -24,14 +31,14 @@ class adoptDetails extends StatelessWidget{
                 width: double.infinity,
                 //height: 250,
                 //color: Colors.yellow,
-                 child: Image.asset('assets/images/dog1.png'),
-                //child: ImageExpanded(image:petData["ImageURL"]),
+                 //child: Image.asset('assets/images/dog1.png'),
+                child: ImageExpanded(image:widget.petData["ImageURL"]),
                 //child: Image.network(petData["ImageURL"]),
                 // child: Image(
                 //   image: NetworkImage(petData["ImageURL"]),
                 // ),
               ),
-        
+
               Container(
                 child: Padding(
                   padding: const EdgeInsets.fromLTRB(10, 10, 10, 0),
@@ -59,8 +66,8 @@ class adoptDetails extends StatelessWidget{
                                 Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text(petData['animalname'],style: kHeading.copyWith(fontSize: 20),),
-                                    Text(petData['breedname'],style: kText,),
+                                    Text(widget.petData['animalname'],style: kHeading.copyWith(fontSize: 20),),
+                                    Text(widget.petData['breedname'],style: kText,),
                                   ],
                                 ),
                                 Container(
@@ -76,7 +83,7 @@ class adoptDetails extends StatelessWidget{
                                         offset: Offset(0, 3),)
                                     ],
                                   ),
-                                  child: Icon((petData['sexname']=='Female')?Icons.female:Icons.male),
+                                  child: Icon((widget.petData['sexname']=='Female')?Icons.female:Icons.male),
                                 )
                               ],
                             ),
@@ -104,8 +111,8 @@ class adoptDetails extends StatelessWidget{
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Age",style: kText.copyWith(color: Colors.white),),
-                                    Text(petData['animalage'],style: kText.copyWith(color: Colors.white),),
+                                    Text("Age",style: kText.copyWith(color: Colors.white,fontWeight: FontWeight.bold),),
+                                    Text(widget.petData['animalage'],style: kText.copyWith(color: Colors.white),),
                                   ],
                                 ),
                               ),
@@ -127,8 +134,8 @@ class adoptDetails extends StatelessWidget{
                                 child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Type",style: kText.copyWith(color: Colors.white),),
-                                  Text(petData['speciesname'],style: kText.copyWith(color: Colors.white),),
+                                  Text("Species Type",style: kText.copyWith(color: Colors.white,fontWeight: FontWeight.bold),),
+                                  Text(widget.petData['speciesname'],style: kText.copyWith(color: Colors.white),),
                                 ],
                               ),
                               ),
@@ -157,8 +164,8 @@ class adoptDetails extends StatelessWidget{
                                 child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Location",style: kText.copyWith(color: Colors.white),),
-                                    Text(petData['Location'],style: kText.copyWith(color: Colors.white),),
+                                  Text("Location",style: kText.copyWith(color: Colors.white,fontWeight: FontWeight.bold),),
+                                    Text(widget.petData['Location'],style: kText.copyWith(color: Colors.white),),
                                 ],
                               ),
                               ),
@@ -180,8 +187,8 @@ class adoptDetails extends StatelessWidget{
                                 child: Column(
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
-                                    Text("Shelter",style: kText.copyWith(color: Colors.white),),
-                                    Text(petData['Shelter name'],style: kText.copyWith(color: Colors.white),),
+                                    Text("Contact Us",style: kText.copyWith(color: Colors.white,fontWeight: FontWeight.bold),),
+                                    Text(widget.petData['Contact'],style: kText.copyWith(color: Colors.white),),
                                   ],
                                 ),
                               ),
@@ -195,10 +202,14 @@ class adoptDetails extends StatelessWidget{
                           width: double.infinity,
                           child: ElevatedButton(
                             onPressed: (){
+                              setState(() {
+                                button = "Application Sent";
+                                color = Colors.green;
+                              });
                             },
-                            child: Text("Send Application",style: kText.copyWith(color: Colors.white),),
+                            child: Text(button,style: kText.copyWith(color: Colors.white),),
                             style: ElevatedButton.styleFrom(
-                                backgroundColor: Colors.red,
+                                backgroundColor: color,
                                 shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(7)),
                                 elevation: 8,
                                 shadowColor: Colors.grey
@@ -209,16 +220,15 @@ class adoptDetails extends StatelessWidget{
                     ],
                   ),
                 ),
-        
+
               ),
-        
+
             ],
           ),
         ),
       ),
     );
   }
-
 }
 class ImageExpanded extends StatelessWidget {
   const ImageExpanded({
@@ -240,7 +250,7 @@ class ImageExpanded extends StatelessWidget {
             placeholderFit: BoxFit.scaleDown,
             // placeholderFilterQuality: FilterQuality.high,
             placeholder:
-            Image.asset('assets/images/splashimg.png').image,
+            Image.asset('assets/images/loading.png').image,
 
             image: NetworkImage(image),
           ),

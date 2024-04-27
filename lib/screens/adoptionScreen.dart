@@ -44,7 +44,7 @@ class _adoptionScreenState extends State<adoptionScreen> {
         builder: (context, AsyncSnapshot snapshot) {
           return snapshot.hasData
               ? GridView.builder(
-              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( crossAxisCount: 2),
+              gridDelegate: SliverGridDelegateWithFixedCrossAxisCount( childAspectRatio:4/5,crossAxisCount: 2),
               itemCount: snapshot.data.docs.length,
               //itemCount: 1,
               itemBuilder: (context, index) {
@@ -80,16 +80,19 @@ Widget adoptCard(DocumentSnapshot petData){
           ],
         ),
         child: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.fromLTRB(8, 13, 8, 13),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: 80,
-                width: 80,
+                height: 100,
+                width: 100,
                 //color: Colors.yellow,
-                child: Image.asset('assets/images/dog1.png'),
+                //child: Image.asset('assets/images/dog1.png'),
+                child: Image.network(petData["ImageURL"]),
               ),
+              SizedBox(height: 10,),
+
               Expanded(
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -99,9 +102,7 @@ Widget adoptCard(DocumentSnapshot petData){
                   ],
                 ),
               ),
-              SizedBox(
-                height: 5,
-              ),
+              SizedBox(height: 3,),
               Expanded(child: Text(petData['breedname'],style: kText.copyWith(fontSize: 13),textAlign: TextAlign.center,)),
             ],
           ),
