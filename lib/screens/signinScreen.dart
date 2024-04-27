@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pawfect/screens/setProfile.dart';
+import '../main.dart';
 import '../utils/bottomNavBar.dart';
 import '../utils/constants.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 class signinScreen extends StatelessWidget{
-  //final _auth = FirebaseAuth.instance;
-  late String email;
-  late String password;
+  final _auth = FirebaseAuth.instance;
+  late String password='';
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -61,7 +61,7 @@ class signinScreen extends StatelessWidget{
                           SizedBox(height: 10,),
                           TextField(
                             onChanged: (value){
-                              email = value;
+                              password = value;
                             },
                             decoration: kTextFieldDecoration,
                           ),
@@ -69,11 +69,11 @@ class signinScreen extends StatelessWidget{
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: () {
+                              onPressed: () async {
                                 // try{
                                 //   final newuser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
                                 //   if(newuser!=null){
-                                //
+                                //     Get.off(() => setProfile());
                                 //   }
                                 // }
                                 // catch(e){
