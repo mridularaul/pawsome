@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pawfect/screens/loginScreen.dart';
+import 'package:pawfect/screens/signinScreen.dart';
 import 'package:pawfect/utils/constants.dart';
 import 'package:get/get.dart';
 
@@ -40,7 +41,7 @@ class splashScreen extends StatelessWidget{
                 width: double.infinity,
                 child: ElevatedButton(
                   onPressed: (){
-                    Get.to(loginScreen());
+                    Get.to(() => signinScreen());
                   },
                   child: Text("Sign up",style: kText.copyWith(color: Colors.white),),
                   style: ElevatedButton.styleFrom(

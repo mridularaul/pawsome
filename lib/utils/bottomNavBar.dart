@@ -49,7 +49,7 @@ class BottomNavBar extends StatelessWidget{
                     backgroundColor: yellow,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/home.png')),
+                    icon: ImageIcon(AssetImage('assets/images/petcare.png')),
                     label: 'Petcare',
                     backgroundColor: yellow,
                   ),
@@ -59,12 +59,12 @@ class BottomNavBar extends StatelessWidget{
                     backgroundColor: yellow,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/home.png')),
+                    icon: ImageIcon(AssetImage('assets/images/adoption.png')),
                     label: 'Adoption',
                     backgroundColor: yellow,
                   ),
                   BottomNavigationBarItem(
-                    icon: ImageIcon(AssetImage('assets/images/home.png')),
+                    icon: ImageIcon(AssetImage('assets/images/profile.png')),
                     label: 'Profile',
                     backgroundColor: yellow,
                   ),

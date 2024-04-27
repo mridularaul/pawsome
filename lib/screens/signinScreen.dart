@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pawfect/screens/setProfile.dart';
 import '../utils/bottomNavBar.dart';
 import '../utils/constants.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
-class loginScreen extends StatelessWidget{
+class signinScreen extends StatelessWidget{
+  //final _auth = FirebaseAuth.instance;
+  late String email;
+  late String password;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      //appBar: AppBar(title:Text(""),backgroundColor: Colors.transparent,),
       body: SafeArea(
         child: Stack(
           children: [
@@ -47,20 +53,35 @@ class loginScreen extends StatelessWidget{
                           Text("Sign In",style: kHeading.copyWith(color: Colors.white,fontSize: 25),textAlign: TextAlign.start,),
                           SizedBox(height: 10,),
                           TextField(
+                            onChanged: (value){
+                              email = value;
+                            },
                             decoration: kTextFieldDecoration,
                           ),
                           SizedBox(height: 10,),
                           TextField(
+                            onChanged: (value){
+                              email = value;
+                            },
                             decoration: kTextFieldDecoration,
                           ),
                           SizedBox(height: 10,),
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
-                              onPressed: (){
-                                Get.off(() => BottomNavBar());
+                              onPressed: () {
+                                // try{
+                                //   final newuser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                                //   if(newuser!=null){
+                                //
+                                //   }
+                                // }
+                                // catch(e){
+                                //   print(e);
+                                // }
+                                Get.off(() => setProfile());
                               },
-                              child: Text("Log in",style: kText.copyWith(color: yellow),),
+                              child: Text("Sign In",style: kText.copyWith(color: yellow),),
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(side: BorderSide(strokeAlign: BorderSide.strokeAlignInside, color: yellow,),borderRadius: BorderRadius.circular(7)),
