@@ -72,7 +72,7 @@ class loginScreen extends StatelessWidget{
                                 try {
                                   final checkuser = await _auth.signInWithEmailAndPassword(email: email, password: password);
                                   if(checkuser!=null){
-                                    Get.off(() => BottomNavBar());
+                                    Get.offAll(() => BottomNavBar());
                                   }
                                 } catch (e) {
                                   print(e);

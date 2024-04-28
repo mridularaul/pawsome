@@ -35,7 +35,7 @@ class _adoptionScreenState extends State<adoptionScreen> {
     getonload();
     super.initState();
   }
-
+  List<String> filter = [];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
