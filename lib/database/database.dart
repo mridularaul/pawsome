@@ -10,11 +10,11 @@ class PetProfileMethods{
   Future addPetDetails(
       Map<String, dynamic> petinfo) async {
     //return await FirebaseFirestore.instance
-      return await FirebaseFirestore.instance.collection('PetProfile').add(petinfo);
+    return await FirebaseFirestore.instance.collection('PetProfile').add(petinfo);
   }
-  /* 
-  pet name 
-  breed 
+  /*
+  pet name
+  breed
   gender
   age
   color
@@ -41,7 +41,7 @@ class UserProfileMethods{
   Future addUserDetails(
       Map<String, dynamic> Userinfo) async {
     //return await FirebaseFirestore.instance
-      return await FirebaseFirestore.instance.collection('UserProfile').add(Userinfo);
+    return await FirebaseFirestore.instance.collection('UserProfile').add(Userinfo);
   }
 
   Future <Stream<QuerySnapshot>> getUserDetails() async{
@@ -54,11 +54,12 @@ class UserProfileMethods{
 
 }
 
+//From here
 class AppointmentMethods{
   Future addappointmentDetails(
       Map<String, dynamic> appointmentinfo) async {
     //return await FirebaseFirestore.instance
-      return await FirebaseFirestore.instance.collection('Appointment').add(appointmentinfo);
+    return await FirebaseFirestore.instance.collection('Appointment').add(appointmentinfo);
   }
 
   Future <Stream<QuerySnapshot>> getappointmentDetails() async{
