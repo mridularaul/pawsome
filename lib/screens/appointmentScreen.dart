@@ -55,7 +55,7 @@ class _AppointmentState extends State<Appointment> {
         backgroundColor: yellow,
         title: Text(
           'Appointment',
-          style: kText,
+          style: kText.copyWith(fontSize: 25),
         ),
       ),
 
@@ -94,7 +94,7 @@ class _AppointmentState extends State<Appointment> {
                 height: 15,
               ),
               Text(
-                "Appointment Date = " + today.toString().split(" ")[0],
+                "Appointment Date : " + today.toString().split(" ")[0],
                 style: kText.copyWith(color: Colors.black, fontSize: 20),
                 textAlign: TextAlign.start,
               ),
@@ -127,7 +127,7 @@ class _AppointmentState extends State<Appointment> {
                 height: 10,
               ),
               Text(
-                  "Appointment Time = ${selectedTime.hour.toString().padLeft(2, '0')}:${selectedTime.minute.toString().padLeft(2, '0')}",
+                  "Appointment Time : ${selectedTime.hour.toString().padLeft(2, '0')}:${selectedTime.minute.toString().padLeft(2, '0')}",
                   style: kText.copyWith(color: Colors.black, fontSize: 20),
                   textAlign: TextAlign.start),
               SizedBox(

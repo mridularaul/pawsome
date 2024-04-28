@@ -4,16 +4,28 @@ import 'package:get/get.dart';
 import 'package:pawfect/main.dart';
 import 'package:pawfect/screens/addPet.dart';
 import 'package:pawfect/utils/constants.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import '../database/database.dart';
 import 'appointmentScreen.dart';
 
+late User loggedInUser;
 class homeScreen extends StatefulWidget {
   @override
   State<homeScreen> createState() => _homeScreenState();
 }
 
 class _homeScreenState extends State<homeScreen> {
+  final _auth = FirebaseAuth.instance;
+  void getCurrentUser() async {
+    try {
+      final user = await _auth.currentUser;
+      if (user != null) {
+        loggedInUser = user;
+      }
+    } catch (e) {
+      print(e);
+    }
+  }
   Stream? petdetailsstream;
   Stream? userdetailstream;
   Stream? appointmentstream;
@@ -29,6 +41,7 @@ class _homeScreenState extends State<homeScreen> {
   @override
   void initState() {
     getonload();
+    getCurrentUser();
     super.initState();
   }
   @override
@@ -51,7 +64,7 @@ class _homeScreenState extends State<homeScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text("Hello\n$email ",style: kHeading,),
+                    Text("Hello\n${loggedInUser.email} ",style: kHeading,),
                     SizedBox(height: 15,),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,

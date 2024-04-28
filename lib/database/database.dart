@@ -71,3 +71,9 @@ class AppointmentMethods{
   }
 
 }
+
+class BlogsMethods{
+  Future <Stream<QuerySnapshot>> getblogDetails() async{
+    return await FirebaseFirestore.instance.collection('Blogs').snapshots();
+  }
+}

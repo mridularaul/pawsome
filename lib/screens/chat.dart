@@ -44,14 +44,6 @@ class _ChatScreenState extends State<ChatScreen> {
     return Scaffold(
       appBar: AppBar(
         leading: null,
-        // actions: <Widget>[
-        //   IconButton(
-        //       icon: Icon(Icons.close),
-        //       onPressed: () {
-        //         _auth.signOut();
-        //         Navigator.pop(context);
-        //       }),
-        // ],
         title: Text(communityname,style: kText.copyWith(),),
         backgroundColor: Color(0xffFFCD00),
       ),

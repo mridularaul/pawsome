@@ -35,6 +35,7 @@ class _adoptionScreenState extends State<adoptionScreen> {
     getonload();
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
