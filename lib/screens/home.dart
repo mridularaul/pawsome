@@ -182,7 +182,7 @@ class _homeScreenState extends State<homeScreen> {
                             itemCount: snapshot.data.docs.length,
                             itemBuilder: (context, index){
                               DocumentSnapshot dbappoint = snapshot.data.docs[index];
-                              return AppointmentTile(petName: dbappoint['pet name'], title: dbappoint['title'], date: dbappoint['appointment date'], time: dbappoint['appointment time']);
+                              return dbappoint['email']==loggedInUser.email? AppointmentTile(petName: dbappoint['pet name'], title: dbappoint['title'], date: dbappoint['appointment date'], time: dbappoint['appointment time']):Container();
                               // return Column(
                               //   children: [
                               //     Text('Title:' + dbappoint['title']),
