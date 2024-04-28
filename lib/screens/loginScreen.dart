@@ -69,15 +69,16 @@ class loginScreen extends StatelessWidget{
                               width: double.infinity,
                               child: ElevatedButton(
                                 onPressed: () async {
-                                  try {
-                                    final checkuser = await _auth.signInWithEmailAndPassword(email: email, password: password);
-                                    if(checkuser!=null){
-                                      Get.off(() => BottomNavBar());
-                                    }
-                                  } catch (e) {
-                                    print(e);
-                                  }
-                                  
+                                  // try {
+                                  //   final checkuser = await _auth.signInWithEmailAndPassword(email: email, password: password);
+                                  //   if(checkuser!=null){
+                                  //     Get.off(() => BottomNavBar());
+                                  //   }
+                                  // } catch (e) {
+                                  //   print(e);
+                                  // }
+                                                                        Get.off(() => BottomNavBar());
+
                                 },
                                 child: Text("Log in",style: kText.copyWith(color: yellow),),
                                 style: ElevatedButton.styleFrom(

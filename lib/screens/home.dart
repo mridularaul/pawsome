@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:get/get.dart';
+import 'package:pawfect/screens/appointment.dart';
 import 'package:pawfect/utils/constants.dart';
 
 class homeScreen extends StatelessWidget {
@@ -15,6 +17,9 @@ class homeScreen extends StatelessWidget {
         ),
         backgroundColor: Color(0xffffcd00), 
       ),
+      floatingActionButton: FloatingActionButton(onPressed: (){
+        Get.to(Appointment());
+      }),
       body: Column(
         children: [
           Column(

@@ -28,7 +28,7 @@ class BottomNavBar extends StatelessWidget{
                       petcareScreen(),
                       homeScreen(),
                       adoptionScreen(),
-                      profileScreen(),
+                      //PetPlaydateScreen(),
                     ],
                   ),
 
