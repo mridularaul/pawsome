@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../utils/bottomNavBar.dart';
 import '../utils/constants.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 
+import 'package:firebase_auth/firebase_auth.dart';
 class loginScreen extends StatelessWidget{
   final _auth = FirebaseAuth.instance;
   late String email;

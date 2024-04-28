@@ -111,7 +111,7 @@ class _homeScreenState extends State<homeScreen> {
                             itemBuilder: (context, index) {
           
                               DocumentSnapshot dbpet = snapshot.data.docs[index];
-                              return Padding(
+                              return dbpet["email"] == loggedInUser.email? Padding(
                                         padding: const EdgeInsets.all(8.0),
                                         child: Column(
                                           children: [
@@ -126,7 +126,7 @@ class _homeScreenState extends State<homeScreen> {
                                             )
                                           ],
                                         ),
-                                      );
+                                      ):Container();
                             },
                           ):Center(child: Text("Oops! Looks like you did not add any pet"),);
                         },),
