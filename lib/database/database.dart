@@ -53,3 +53,21 @@ class UserProfileMethods{
   }
 
 }
+
+//From here
+class AppointmentMethods{
+  Future addappointmentDetails(
+      Map<String, dynamic> appointmentinfo) async {
+    //return await FirebaseFirestore.instance
+    return await FirebaseFirestore.instance.collection('Appointment').add(appointmentinfo);
+  }
+
+  Future <Stream<QuerySnapshot>> getappointmentDetails() async{
+    return await FirebaseFirestore.instance.collection('Appointment').snapshots();
+  }
+
+  Future deleteappointmentDetails(String id) async {
+    return await FirebaseFirestore.instance.collection('Appointment').doc(id).delete();
+  }
+
+}

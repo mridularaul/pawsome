@@ -27,9 +27,9 @@ class splashScreen extends StatelessWidget{
                     onPressed: (){
                       Get.to(() => loginScreen());
                     },
-                    child: Text("Log in",style: kText.copyWith(color: yellow),),
+                    child: Text("Log in",style: kText.copyWith(color: Colors.white),),
                   style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.white,
+                      backgroundColor: yellow,
                       shape: RoundedRectangleBorder(side: BorderSide(strokeAlign: BorderSide.strokeAlignInside, color: yellow,),borderRadius: BorderRadius.circular(7)),
 
                       elevation: 8,
@@ -37,6 +37,7 @@ class splashScreen extends StatelessWidget{
                   ),
                 ),
               ),
+              SizedBox(height: 10,),
               SizedBox(
                 width: double.infinity,
                 child: ElevatedButton(

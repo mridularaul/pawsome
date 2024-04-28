@@ -48,40 +48,40 @@ class signinScreen extends StatelessWidget{
                       padding: const EdgeInsets.fromLTRB(30, 20, 30, 20),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
-                        crossAxisAlignment: CrossAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Text("Sign In",style: kHeading.copyWith(color: Colors.white,fontSize: 25),textAlign: TextAlign.start,),
+                          Text("Sign Up",style: kHeading.copyWith(color: Colors.white,fontSize: 25),textAlign: TextAlign.start,),
                           SizedBox(height: 10,),
                           TextField(
                             onChanged: (value){
                               email = value;
                             },
-                            decoration: kTextFieldDecoration,
+                            decoration: kTextFieldDecoration.copyWith(hintText: "Email ID"),
                           ),
                           SizedBox(height: 10,),
                           TextField(
                             onChanged: (value){
                               password = value;
                             },
-                            decoration: kTextFieldDecoration,
+                            decoration: kTextFieldDecoration.copyWith(hintText: "Password"),
                           ),
                           SizedBox(height: 10,),
                           SizedBox(
                             width: double.infinity,
                             child: ElevatedButton(
                               onPressed: () async {
-                                // try{
-                                //   final newuser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
-                                //   if(newuser!=null){
-                                //     Get.off(() => setProfile());
-                                //   }
-                                // }
-                                // catch(e){
-                                //   print(e);
-                                // }
-                                Get.off(() => setProfile());
+                                try{
+                                  final newuser = await _auth.createUserWithEmailAndPassword(email: email, password: password);
+                                  if(newuser!=null){
+                                    Get.off(() => setProfile());
+                                  }
+                                }
+                                catch(e){
+                                  print(e);
+                                }
+
                               },
-                              child: Text("Sign In",style: kText.copyWith(color: yellow),),
+                              child: Text("Sign Up",style: kText.copyWith(color: yellow),),
                               style: ElevatedButton.styleFrom(
                                   backgroundColor: Colors.white,
                                   shape: RoundedRectangleBorder(side: BorderSide(strokeAlign: BorderSide.strokeAlignInside, color: yellow,),borderRadius: BorderRadius.circular(7)),

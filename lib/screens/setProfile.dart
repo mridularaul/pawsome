@@ -7,7 +7,6 @@ import '../utils/bottomNavBar.dart';
 import '../utils/constants.dart';
 
 class setProfile extends StatelessWidget{
-  late String name;
   late String city;
   late String phone;
 
@@ -39,7 +38,7 @@ class setProfile extends StatelessWidget{
                       Text("Name",style: kText,),
                       TextField(
                         onChanged: (value){
-                          name = value;
+                          username = value;
                         },
                         decoration: kTextFieldDecoration,
                       ),
@@ -66,7 +65,7 @@ class setProfile extends StatelessWidget{
                           onPressed: (){
                             UserProfileMethods().addUserDetails(
                                 {
-                                  "username" : name,
+                                  "username" : username,
                                   "email" : email,
                                   "phone" : phone,
                                   "city" : city,

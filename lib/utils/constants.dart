@@ -7,7 +7,7 @@ const kText = TextStyle(color: Colors.black, fontSize: 15, fontFamily: 'Fredoka'
 
 const kTextFieldDecoration = InputDecoration(
 
-  hintText: 'Enter a value',
+  hintText: 'Enter',
   hintStyle:
   TextStyle(color: Colors.grey, fontSize: 12, fontFamily: 'Fredoka'),
   filled: true,
@@ -20,5 +20,23 @@ const kTextFieldDecoration = InputDecoration(
   focusedBorder: OutlineInputBorder(
     borderSide: BorderSide(color: yellow, width: 2.0),
     borderRadius: BorderRadius.all(Radius.circular(2.0)),
+  ),
+);
+//For community chat
+const kSendButtonTextStyle = TextStyle(
+  color: Color(0xffFFCD00),
+  fontWeight: FontWeight.bold,
+  fontSize: 18.0,
+);
+
+const kMessageTextFieldDecoration = InputDecoration(
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  hintText: 'Type your message here...',
+  border: InputBorder.none,
+);
+
+const kMessageContainerDecoration = BoxDecoration(
+  border: Border(
+    top: BorderSide(color: Color(0xffFFCD00), width: 2.0),
   ),
 );
