@@ -1,4 +1,4 @@
-# pawfect
+# Pawsome
 
-Se Hackathon Problem
+A digital solution for Modern Pet Owners
 
